@@ -13,7 +13,16 @@ In each line, attribute, datatype, and nullability are specified (separated by s
 
 `attribute_name datatype(params?) N?K?` 
 
-where:
+## 🧾 Table of Contents
+- [Random Dataset Generator](#random-dataset-generator)
+  - [🧾 Table of Contents](#-table-of-contents)
+  - [🔠 Data Types](#-data-types)
+  - [📎 Example](#-example)
+  - [Developer information](#developer-information)
+    - [Python environment](#python-environment)
+
+## 🔠 Data Types
+
 - `attribute_name` is the name of the attribute, it cannot contain spaces
 
 - `datatype(params?)` it the desired datatype. Some parameters can be specified (most parameters are optional). Accepted datatypes values are:
@@ -52,6 +61,9 @@ where:
         can't be `null`.
 - `K?`: key option. If provided, the value is treated as a primary key. Which means no repeated values will be generated. It also enables the field to
         be used as a foreign key source.
+
+
+## 📎 Example
 
 Schema definition examples:
 ```
