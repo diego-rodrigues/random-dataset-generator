@@ -1,7 +1,7 @@
 # CHANGELOG
 
 ## 0.2.0
-### xx-08-2024
+### 07-08-2024
 
 #### Added
 - Equality functions to `Attribute` and `Table`.

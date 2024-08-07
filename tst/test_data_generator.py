@@ -245,5 +245,3 @@ class TestAttribute(unittest.TestCase):
         actual = dg._parse_type(inputStr)
         self.assertEqual(actual, expected)
 
-
-    
