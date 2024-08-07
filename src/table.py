@@ -41,4 +41,9 @@ class Table:
     def print(self):
         print(self)
 
-    
+    def __eq__(self, other):
+        if isinstance(other, Table):
+            return self.name == other.name \
+                and self.qt_records == other.qt_records \
+                and self.attributes == other.attributes
+        return False

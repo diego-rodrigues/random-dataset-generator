@@ -37,3 +37,15 @@ class Attribute:
     
     def __str__(self):
         return "{} :{}({}) | {}".format(self.name, self.datatype, self.args, self.modifiers_str())
+    
+    def __eq__(self, other):
+        if isinstance(other, Attribute):
+            return self.name == other.name \
+                and self.datatype == other.datatype \
+                and self.args == other.args \
+                and self.nullable == other.nullable \
+                and self.pk == other.pk \
+                and self.fk == other.fk \
+                and self.values == other.values \
+                and self.autoinc == other.autoinc
+        return False
