@@ -92,7 +92,3 @@ Create and activate a Python environment with:
 virtualenv -p /opt/homebrew/bin/python3.10 env3.10
 env3.10/bin/activate
 ```
-
-
-
-tag 1.0-dr
