@@ -78,15 +78,9 @@ Account_ID INT
 TableB 5
 
 ID AUTOINC
-ID2 AUTOINC(2,2)
-premium_str PREMIUM K
-FKeyAttribute FOREIGN(TableC.AutoId) K
-FKeyAtt__Repeat FOREIGN(TableC.Identifier) 
-
-TableA 3
-
-ID AUTOINC(0,2)
-PREMIUM_FK FOREIGN_PREMIUM(TableB.premium_str)
+ID_EVEN AUTOINC(2,2)
+FKeyAttribute FOREIGN(TableA.AutoId) K
+FKeyAtt__Repeat FOREIGN(TableA.Identifier) 
 ```
 
 ## Developer information
@@ -98,3 +92,7 @@ Create and activate a Python environment with:
 virtualenv -p /opt/homebrew/bin/python3.10 env3.10
 env3.10/bin/activate
 ```
+
+
+
+tag 1.0-dr
