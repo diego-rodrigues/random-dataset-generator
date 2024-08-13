@@ -37,6 +37,11 @@ class TestAttribute(unittest.TestCase):
         att = Attribute("test", "str", [])
         self.assertFalse(att.is_key())
 
+    def test_can_be_key_and_nullable(self):
+        att = Attribute("test", "str", [], True, True, True)
+        self.assertTrue(att.is_key())
+        self.assertFalse(att.nullable)
+
     def test_add_values(self):
         att = Attribute("test", "str", [])
         self.assertFalse(att.has_value("str"))
@@ -44,8 +49,16 @@ class TestAttribute(unittest.TestCase):
         att.add_value("str")
         self.assertTrue(att.has_value("str"))
 
+        self.assertFalse(att.add_value("str"))
+
+    def test_not_equal(self):
+        att = Attribute("test", "str", [])
+
+        self.assertFalse(att == None)
+        
     def test_print(self):
         att = Attribute("test", "str", [], False, True, True)
+        print(att)
         self.assertIsNotNone(att.__str__)
 
 if __name__ == '__main__':

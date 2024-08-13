@@ -28,7 +28,16 @@ class TestTable(unittest.TestCase):
 
     def test_print(self):
         t = Table("test", 10)
-        self.assertIsNotNone(t.__str__)
+        t.with_attribute(Attribute("att", "str", []))
+        self.assertIsNotNone(t.__str__())
+
+    def test_does_not_have_attribute(self):
+        t = Table("test", 10)
+        att = Attribute("att", "str", [])
+        t.with_attribute(att)
+
+        self.assertIsNone(t.get_attribute("no_att"))
+        self.assertFalse(t.has_attribute("no_att"))
 
 if __name__ == '__main__':
     unittest.main() 
