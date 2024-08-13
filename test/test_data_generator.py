@@ -259,5 +259,3 @@ class TestAttribute(unittest.TestCase):
         actual = dg._generate_schema(schemaStr)
         expected = [table]
         self.assertListEqual(actual, expected)
-
-    
