@@ -50,9 +50,15 @@ class TestAttribute(unittest.TestCase):
         actual = dg._parse_type(inputStr)
         self.assertEqual(actual, expected)
 
-    
     def test_parse_type_varchar_default(self):
         inputStr = "varchar"
+        
+        expected = (datatypes.STRING, [configs.MIN_STRING_LENGTH, configs.MAX_STRING_LENGTH])
+        actual = dg._parse_type(inputStr)
+        self.assertEqual(actual, expected)
+
+    def test_parse_type_varchar_swap_length(self):
+        inputStr = "varchar(10,4)"
         
         expected = (datatypes.STRING, [configs.MIN_STRING_LENGTH, configs.MAX_STRING_LENGTH])
         actual = dg._parse_type(inputStr)
@@ -245,3 +251,13 @@ class TestAttribute(unittest.TestCase):
         actual = dg._parse_type(inputStr)
         self.assertEqual(actual, expected)
 
+    def test_generate_schema_one_table(self):
+        schemaStr = "Table 10\nid INT NK"
+        table = Table("Table", 10)
+        table.with_attribute(Attribute("id",datatypes.INT,[0,100],False,True,False))
+        
+        actual = dg._generate_schema(schemaStr)
+        expected = [table]
+        self.assertListEqual(actual, expected)
+
+    

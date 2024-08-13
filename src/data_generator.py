@@ -194,9 +194,6 @@ def _parse_type(typeStr: str) -> tuple[str,list] :
                 else:
                     logging.warning("Did not find {}.{}. Is must be already defined before ".format(table, attribute) \
                                     + "this attribute. It also must be defined as a Key (optional K).")
-            
-            case _:
-                logging.warning("Could not identify datatype when reading [{}].".format(typeStr))
                                 
     return datatypes.NULL, []
     
