@@ -21,3 +21,7 @@ MAX_TRIES_GEN_RAND = 5
 
 # Chance of a nullable attribute of being null
 CHANCE_RANDOM_NULL = 0.10
+
+# Default files
+DEFAULT_FILE_INPUT = "input-schema.txt"
+DEFAULT_FILE_OUTPUT = "generated_records.json"

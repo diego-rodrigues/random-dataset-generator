@@ -2,12 +2,25 @@
 
 This project creates a dataset with random data according to a predefined schema.
 
+## 🖊 Usage
+
 To generate a set of random records, run the Python script with:
 ```shell
-python random_dataset_generator.py
+python random-dataset-generator.py [-h] [-i filename] [-o filename]
+```
+```
+options:
+  -h, --help    show this help message and exit
+  -i filename, --input filename
+                Use this flag to indicate the input file containing
+                tables schemas. (default: input-schema.txt)
+  -o filename, --output filename
+                Use this flag to indicate the output file 
+                containing generated records. (default:
+                generated_records.json)
 ```
 
-This will generate a file (`generated_records.json`) containing JSON lines, according to a predefined schema in a file ([input-schema.txt](input-schema.txt)).
+This will generate a file (`generated_records.json`) containing JSON lines, according to a predefined schema in a file (like [input-schema.txt](input-schema.txt)).
 
 In each line, attribute, datatype, and nullability are specified (separated by space) according to the structure:
 
@@ -15,6 +28,7 @@ In each line, attribute, datatype, and nullability are specified (separated by s
 
 ## 🧾 Table of Contents
 - [Random Dataset Generator](#random-dataset-generator)
+  - [🖊 Usage](#-usage)
   - [🧾 Table of Contents](#-table-of-contents)
   - [🔠 Data Types](#-data-types)
   - [📎 Example](#-example)
