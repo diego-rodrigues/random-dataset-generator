@@ -1,8 +1,7 @@
 
 import src.data_generator as dg
-
-file_str = "input-schema.txt"
-file_out = "generated_records.json"
+import argparse
+from src.configs import DEFAULT_FILE_INPUT, DEFAULT_FILE_OUTPUT
 
 # parse_type("string(10)")                        # not-accepted: it will take default min, max values
 # parse_type("string(10,20)")                     # it takes min as 10 and max as 20
@@ -33,6 +32,22 @@ file_out = "generated_records.json"
 
 # date formats: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
 
+def _create_arg_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description='Random Dataset Generator')
+    parser.add_argument('-i', "--input", action='store', metavar='filename',
+                        help="Use this flag to indicate the input file containing tables schemas. (default: {})".format(DEFAULT_FILE_INPUT),
+                        default=DEFAULT_FILE_INPUT)
+    parser.add_argument('-o', "--output", action='store', metavar='filename',
+                        help="Use this flag to indicate the output file containing generated records. (default: {})".format(DEFAULT_FILE_OUTPUT),
+                        default=DEFAULT_FILE_OUTPUT)
+    return parser
+
+
+def _parse_args(parser: argparse.ArgumentParser) -> tuple[str,str]:
+    args = parser.parse_args()
+    return args.input, args.output
+
 
 if __name__ == "__main__":
-    dg.run(file_str, file_out)
+    input, output = _parse_args(_create_arg_parser())
+    dg.run(input, output)
