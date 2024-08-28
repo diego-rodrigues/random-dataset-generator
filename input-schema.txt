@@ -1,23 +1,14 @@
-TableC 10
+TableA 7
+# This is a comment, this line is ignored
 
 AutoId AUTOINC(1,3) K
 Identifier STRING(20) K
 Some_Code STRING(2,5) N
 Account_ID INT
-ID_in_Range INT(-10,10) K
-Category TOKENS(A,B,C,D,E)
-Money PRECISION(2,0,100)
-Time_elapsed_ms PRECISION(3,10,80)
-modified_at DATETIME(2020-02-20,2021-11-21)
-formatted_date_code FORMATTED_DATETIME(%d%m%Y,2020-02-20,2021-11-21)
-Rate FLOAT
-Random_boolean BOOLEAN
-Always_true BOOLEAN(1.0)
-always_false BOOLEAN(0.0)
 
 TableB 5
 
 ID AUTOINC
-ID2 AUTOINC(2,2)
-FKeyAttribute FOREIGN(TableC.AutoId) K
-FKeyAtt__Repeat FOREIGN(TableC.Identifier) 
+ID_EVEN AUTOINC(2,2)
+FKeyAttribute FOREIGN(TableA.AutoId) K
+FKeyAtt__Repeat FOREIGN(TableA.Identifier) 

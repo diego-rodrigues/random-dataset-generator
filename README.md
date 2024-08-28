@@ -31,9 +31,10 @@ In each line, attribute, datatype, and nullability are specified (separated by s
   - [🖊 Usage](#-usage)
   - [🧾 Table of Contents](#-table-of-contents)
   - [🔠 Data Types](#-data-types)
-  - [📎 Example](#-example)
-  - [Developer information](#developer-information)
-    - [Python environment](#python-environment)
+  - [📎 Usage example](#-usage-example)
+  - [📎📝 Output example](#-output-example)
+  - [🧑‍💻 Developer information](#-developer-information)
+    - [🐍 Python environment](#-python-environment)
 
 ## 🔠 Data Types
 
@@ -77,15 +78,26 @@ In each line, attribute, datatype, and nullability are specified (separated by s
         be used as a foreign key source.
 
 
-## 📎 Example
+## 📎 Usage example
 
-Schema definition examples:
+* (Optionally) create and activate a Python environment:
+```bash
+python3 -m venv myenv
+source myenv/bin/activate
 ```
-TableA 5
+
+* Install the requirements:
+```bash
+pip install -r requirements.txt
+```
+
+* Create a schema definition file (`input-schema.txt`):
+```
+TableA 7
 # This is a comment, this line is ignored
 
-AutoId AUTOINC(1,3)
-Identifier STRING(20) NK
+AutoId AUTOINC(1,3) K
+Identifier STRING(20) K
 Some_Code STRING(2,5) N
 Account_ID INT
 
@@ -97,9 +109,31 @@ FKeyAttribute FOREIGN(TableA.AutoId) K
 FKeyAtt__Repeat FOREIGN(TableA.Identifier) 
 ```
 
-## Developer information
+* Run the script
+```bash
+python random_dataset_generator.py -i input-schema.txt -o generated_records.json
+```
 
-### Python environment
+## 📎📝 Output example
+
+```json
+{"AutoId": 1, "Identifier": "VBdZl26m4H", "Some_Code": "mRc", "Account_ID": 92}
+{"AutoId": 4, "Identifier": "KsIUR", "Some_Code": "af", "Account_ID": 86}
+{"AutoId": 7, "Identifier": "lZlNqyinj", "Some_Code": "1Zk", "Account_ID": 49}
+{"AutoId": 10, "Identifier": "h6nw0F4Fa", "Some_Code": "3O", "Account_ID": 13}
+{"AutoId": 13, "Identifier": "jMAjorzKNV", "Some_Code": "IS", "Account_ID": 53}
+{"AutoId": 16, "Identifier": "0Hw7i", "Some_Code": "6Ao", "Account_ID": 47}
+{"AutoId": 19, "Identifier": "4dYAB8hSW", "Some_Code": "WBd", "Account_ID": 25}
+{"ID": 1, "ID_EVEN": 2, "FKeyAttribute": 4, "FKeyAtt__Repeat": "VBdZl26m4H"}
+{"ID": 2, "ID_EVEN": 4, "FKeyAttribute": 13, "FKeyAtt__Repeat": "KsIUR"}
+{"ID": 3, "ID_EVEN": 6, "FKeyAttribute": 1, "FKeyAtt__Repeat": "VBdZl26m4H"}
+{"ID": 4, "ID_EVEN": 8, "FKeyAttribute": 7, "FKeyAtt__Repeat": "KsIUR"}
+{"ID": 5, "ID_EVEN": 10, "FKeyAttribute": 16, "FKeyAtt__Repeat": "h6nw0F4Fa"}
+```
+
+## 🧑‍💻 Developer information
+
+### 🐍 Python environment
 
 Create and activate a Python environment with:
 ```bash
