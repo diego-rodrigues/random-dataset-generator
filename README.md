@@ -33,8 +33,6 @@ In each line, attribute, datatype, and nullability are specified (separated by s
   - [🔠 Data Types](#-data-types)
   - [📎 Usage example](#-usage-example)
   - [📎📝 Output example](#-output-example)
-  - [🧑‍💻 Developer information](#-developer-information)
-    - [🐍 Python environment](#-python-environment)
 
 ## 🔠 Data Types
 
@@ -129,14 +127,4 @@ python random_dataset_generator.py -i input-schema.txt -o generated_records.json
 {"ID": 3, "ID_EVEN": 6, "FKeyAttribute": 1, "FKeyAtt__Repeat": "VBdZl26m4H"}
 {"ID": 4, "ID_EVEN": 8, "FKeyAttribute": 7, "FKeyAtt__Repeat": "KsIUR"}
 {"ID": 5, "ID_EVEN": 10, "FKeyAttribute": 16, "FKeyAtt__Repeat": "h6nw0F4Fa"}
-```
-
-## 🧑‍💻 Developer information
-
-### 🐍 Python environment
-
-Create and activate a Python environment with:
-```bash
-virtualenv -p /opt/homebrew/bin/python3.10 env3.10
-env3.10/bin/activate
 ```
